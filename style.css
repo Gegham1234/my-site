@@ -1,0 +1,15 @@
+body{
+    background-image: linear-gradient(to bottom right, rgb(94, 255, 180), rgb(255, 179, 0));
+    background-repeat: no-repeat;
+}
+span{
+    font-size: 23px;
+}
+hr{
+    display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid black;
+  margin: 1em 0;
+  padding: 0;
+}
