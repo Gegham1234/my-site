@@ -1,21 +1,66 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Product</title>
-</head>
+    <title>Product - Քաղաքակրթություններ</title>
 
-<body>
     <style>
+        /* ========================================================= */
+        /* ОСНОВНЫЕ СТИЛИ (ДЕЛАЮТ МАКЕТ ГИБКИМ) */
+        /* ========================================================= */
+
         body {
             background-image: linear-gradient(to bottom right, rgb(94, 255, 180), rgb(255, 179, 0));
             background-repeat: no-repeat;
+            /* Важно: минимальная высота для полного градиента на маленьком контенте */
+            min-height: 100vh; 
+            margin: 0;
+            padding: 0;
         }
 
+        /* Общие стили для контентных секций */
+        .civilization-section {
+            display: flex; /* Используем Flexbox для основного макета ТЕКСТ + ИЗОБРАЖЕНИЯ */
+            margin: 20px 10px;
+            gap: 20px; /* Расстояние между блоками текста и изображений */
+        }
+
+        .text-content {
+            padding: 10px 0 0 10px;
+            /* Flex-Grow: позволяет блоку занимать все доступное место */
+            flex-grow: 1; 
+            /* Flex-Basis: предлагает начальный размер, но flex-grow важнее */
+            flex-basis: 60%; 
+        }
+
+        .image-gallery {
+            display: flex;
+            flex-direction: column; /* Изображения в галерее пусть идут вертикально */
+            gap: 10px;
+            flex-basis: 30%; /* Выделяем 30% ширины для галереи на больших экранах */
+            padding: 10px;
+        }
+
+        /* Стиль для текста внутри div */
         span {
             font-size: 23px;
+            display: block; /* Важно: span по умолчанию строчный, делаем блочным */
+            line-height: 1.5; /* Улучшаем читабельность */
+        }
+
+        /* Делаем все изображения адаптивными */
+        .image-gallery img {
+            max-width: 100%; /* Гарантирует, что изображение не вылезет из своего контейнера */
+            height: auto; /* Сохраняет пропорции изображения */
+            border-radius: 8px; /* Небольшой визуальный штрих */
+        }
+
+        /* Для изображений с заданным стилем в коде (например, Չինական) */
+        .image-gallery img[style] {
+            /* Перезаписываем инлайновые стили фиксированной ширины/высоты, чтобы сделать их адаптивными */
+            width: 100% !important; 
+            height: auto !important;
         }
 
         hr {
@@ -26,12 +71,107 @@
             margin: 1em 0;
             padding: 0;
         }
+        
+        /* Стили футера (для лучшей адаптивности) */
+        footer {
+            height: auto !important; /* Убираем фиксированную высоту */
+            background: #000;
+            color: white;
+            padding: 20px;
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column; /* Элементы футера вертикально по умолчанию */
+            align-items: center;
+            text-align: center;
+        }
+        
+        footer div:first-child {
+            margin-bottom: 10px;
+        }
+        
+        footer a {
+            color: white; 
+            text-decoration: none;
+            margin: 10px 0; /* Добавляем отступы для ссылок */
+            display: block; /* Ссылка занимает всю ширину */
+        }
+        
+        /* Улучшаем стилизацию списка */
+        ul {
+            list-style: disc inside;
+            padding-left: 0;
+        }
+        
+        li {
+            margin-top: 5px;
+        }
+
+        /* ========================================================= */
+        /* МЕДИАЗАПРОСЫ (MEDIA QUERIES) ДЛЯ АДАПТИВНОСТИ */
+        /* ========================================================= */
+        
+        /* Стили для экранов с максимальной шириной 768px (планшеты и мобильные) */
+        @media (max-width: 768px) {
+            
+            /* Делаем основной блок контента вертикальным */
+            .civilization-section {
+                flex-direction: column; /* Текст и изображения располагаются друг под другом */
+                margin: 10px;
+            }
+            
+            /* Уменьшаем размер шрифта для лучшей читабельности на маленьких экранах */
+            span {
+                font-size: 18px;
+            }
+
+            .text-content {
+                padding: 5px 0 0 5px;
+            }
+
+            .image-gallery {
+                flex-direction: row; /* Изображения внутри галереи можно расположить в ряд для компактности */
+                flex-wrap: wrap; /* Если не поместятся, перенесутся на новую строку */
+                justify-content: center; /* Выравнивание по центру */
+                padding: 5px;
+            }
+            
+            /* Уменьшаем размер изображений в галерее на мобильных, если их несколько */
+            .image-gallery img {
+                width: 48%; /* 2 изображения в ряд, с небольшим отступом */
+            }
+            
+            /* Если изображений 1 или 3, то можно сделать их по 100% */
+            /* Чтобы не усложнять, оставим 48% — так они не будут слишком большими */
+
+            /* Корректировка футера для мобильных */
+            footer a {
+                margin: 5px 0;
+                /* Убираем ненужный большой отступ, заданный инлайновым стилем */
+                margin-left: 0 !important; 
+            }
+            
+            /* На мобильных устройствах делаем элементы футера более компактными */
+            footer div:nth-child(2) {
+                text-align: center;
+            }
+        }
+        
+        /* Стили для экранов с максимальной шириной 480px (только телефоны) */
+        @media (max-width: 480px) {
+            .image-gallery img {
+                width: 100%; /* Одно изображение на всю ширину на самых маленьких экранах */
+            }
+        }
+
     </style>
     <script src="script.js"></script>
+</head>
+
+<body>
     <h1>Քաղաքակրթություն</h1>
     <hr>
-    <div style="display: flex ;">
-        <div style="padding: 10px 0 0 10px;">
+    <div class="civilization-section">
+        <div class="text-content" style="padding: 10px;">
             <span>Քաղաքակրթություն, հասարակական զարգացման, նաև նյութական ու հոգևոր մշակույթի մակարդակ, աստիճան։
                 Քաղաքակրթություն հասկացությունը երևան է եկել 18-րդ դարում և սերտորեն կապված է մշակույթ հասկացության հետ։
                 Ֆրանսիացի փիլիսոփաները քաղաքակիրթ էին համարում բանականության և արդարության սկզբունքների վրա հիմնված
@@ -46,14 +186,16 @@
     <hr>
     <h1>Օրինակներ</h1>
     <hr>
-    <span>Եգիպտական, Հին Չինական, Հին Հնդկական, Մինոսյան, Մայաների, Ացտեկների, Հին Հունական, ՀիՆ Հռոմեական, Արաբական,
-        Ռուսական և Ճապոնական
-        քաղաքակրթություններ։</span>
+    <div style="padding: 0 10px;">
+        <span>Եգիպտական, Հին Չինական, Հին Հնդկական, Մինոսյան, Մայաների, Ացտեկների, Հին Հունական, ՀիՆ Հռոմեական, Արաբական,
+            Ռուսական և Ճապոնական
+            քաղաքակրթություններ։</span>
+    </div>
     <hr>
     <h1>Եգիպտական քաղաքակրթություն</h1>
     <hr>
-    <div style="display: flex;">
-        <div>
+    <div class="civilization-section">
+        <div class="text-content">
             <span>Եգիպտական քաղաքակրթությունԵգիպտական քաղաքակրթությունը ձևավորվել է Աֆրիկայի հյուսիս–արևելքում` Նեղոս
                 գետի ստորին հոսանքի շրջանում: Եգիպտոս անունը ծագում է այս երկրին հույների տված Ագյուպտոս անվանումից:
                 Վերջինս ծագում էր Եգիպտոսի խոշորագույն քաղաքներից մեկի` Մեմֆիսի Խեթ–կա–Պտահ անվանումից: Իրենք`
@@ -73,15 +215,16 @@
                 </ul>
             </span>
         </div>
-        <div><a href="egiptos.jpg" target="_blank"><img src="egiptos.jpg"></a>
+        <div class="image-gallery">
+            <a href="egiptos.jpg" target="_blank"><img src="egiptos.jpg"></a>
             <a href="Без названия.jpg" target="_blank"><img src="Без названия.jpg"></a>
         </div>
     </div>
     <hr>
     <h1>Հին Չինական քաղաքակրթություն</h1>
     <hr>
-    <div style="display: flex;">
-        <div><span>
+    <div class="civilization-section">
+        <div class="text-content"><span>
                 Չինական քաղաքակրթություն: Չինաստանը հնագույն մշակույթի երկիր է, արևելյան քաղաքակրթության օրրանը. այստեղ
                 են կատարվել մի շարք գյուտեր ու հայտնագործություններ՝ բնական մետաքսը, վառոդը, կողմնացույցը, մեխանիկական
                 ժամացույցը, թուղթը, գունավոր տպագրությունը և այլն։ Այստեղ են ստեղծվել համաշխարհային նշանակության
@@ -108,7 +251,8 @@
                     <li>Վերջնական արդյունք՝ Կայունություն</li>
                 </ul>
             </span></div>
-        <div><a href="հին չինական.jpg" target="_blank"><img src="հին չինական.jpg"></a>
+        <div class="image-gallery">
+            <a href="հին չինական.jpg" target="_blank"><img src="հին չինական.jpg"></a>
             <a href="հին չինական 1.jpg" target="_blank"><img src="հին չինական 1.jpg"
                     style="width: 280px; height: 180px;"></a>
             <a href="հին չինական 2.jpg" target="_blank"><img src="հին չինական 2.jpg"
@@ -118,8 +262,8 @@
     <hr>
     <h1>Հին Հնդկական քաղաքակրթություն</h1>
     <hr>
-    <div style="display: flex;">
-        <div>
+    <div class="civilization-section">
+        <div class="text-content">
             <span>Ինչպես արդեն ասել ենք, հնդկական ամենահին քաղաքակրթությունը, որը կոչվում է Հրապպան կամ Պրոտո-հնդկական
                 հայտնաբերվել է հնագետների կողմից վերջին քսաներորդ դարի սկզբին: Գիտնականների զարմացած հայացքից առաջ
                 հայտնվեց աշխույժ մշակույթ ՝ զարգացած քաղաքներով, ջրամատակարարմամբ հագեցած տներ (սա այն ժամանակաշրջանում
@@ -139,7 +283,7 @@
                 </ul>
             </span>
         </div>
-        <div>
+        <div class="image-gallery">
             <a href="Հին Հնդկական.jpg" target="_blank"><img src="Հին Հնդկական.jpg"></a>
             <a href="Հին հնդկական 2.jpg" target="_blank"><img src="Հին հնդկական 2.jpg"
                     style="width: 282px; height: 179px;"></a>
@@ -148,8 +292,8 @@
     <hr>
     <h1>Կրետե (Մինոսյան) քաղաքակրթություն</h1>
     <hr>
-    <div style="display: flex;">
-        <div>
+    <div class="civilization-section">
+        <div class="text-content">
             <span>
                 Հին Կրետեն հայտնի դարձավ սիրահարված աստվածների մասին իր առասպելներով, Իկարուսի լեգենդով, առաջին մարդուն,
                 ով թռավ դեպի երկինք: Այստեղ է ծնվել Զևսը` բոլոր աստվածների հովանավոր սուրբը: Կրետե կղզու հնագույն
@@ -171,7 +315,7 @@
                 </ul>
             </span>
         </div>
-        <div>
+        <div class="image-gallery">
             <a href="Մինոսյան.jpg" target="_blank"><img src="Մինոսյան.jpg"></a>
             <a href="Մինոսյան 3.jpg" target="_blank"><img src="Մինոսյան 3.jpg" style="width: 330px;height: 220px;"></a>
         </div>
@@ -179,8 +323,8 @@
     <hr>
     <h1>Մայաների քաղաքակրթություն</h1>
     <hr>
-    <div style="display: flex;">
-        <div>
+    <div class="civilization-section">
+        <div class="text-content">
             <span>
                 Մայաների քաղաքակրթությունը, որը գոյություն է ունեցել ներկայիս Մեքսիկայի և Կենտրոնական Ամերիկայի
                 տարածքներում, հայտնի է ոչ միայն իր բարձր զարգացած գիտելիքներով, այլև իր ռազմատենչ բնույթով։ Պատերազմները
@@ -210,7 +354,7 @@
                 </ul>
             </span>
         </div>
-        <div>
+        <div class="image-gallery">
             <a href="Mayaner.jpg" target="_blank"><img src="Mayaner.jpg" style="width: 330px; height: 250px;"></a>
             <a href="Mayaner 2.png" target="_blank"><img src="Mayaner 2.png" style="width: 330px; height: 250px;"></a>
         </div>
@@ -218,8 +362,8 @@
     <hr>
     <h1>Ացտեկներ</h1>
     <hr>
-    <div style="display: flex;">
-        <div>
+    <div class="civilization-section">
+        <div class="text-content">
             <span>
                 Ացտեկներ, մեզոամերիկյան հնդկացի ժողովուրդ, որը ծաղկում է ապրել կենտրոնական Մեքսիկայում 1300-1521
                 թվականներին։ Ացտեկները իրենց մեջ ներառում էին կենտրոնական Մեքսիկայի տարբեր էթնիկ խմբեր, մասնավորապես այն
@@ -242,7 +386,7 @@
                 </ul>
             </span>
         </div>
-        <div>
+        <div class="image-gallery">
             <a href="Ացտեկներ.jpg" target="_blank"><img src="Ացտեկներ.jpg"></a>
             <a href="Ացտեկներ 2.jpg" target="_blank"><img src="Ացտեկներ 2.jpg"></a>
         </div>
@@ -250,8 +394,8 @@
     <hr>
     <h1>Հին Հունական քաղաքակրթություն</h1>
     <hr>
-    <div style="display: flex;">
-        <div>
+    <div class="civilization-section">
+        <div class="text-content">
             <span>
                 Հին Հունաստանը քաղաքակրթությունների համալիր է, որն ընդգրկել է Եգեյան ծովն իր կղզիներով, Բալկանյան
                 թերակղզու հարավային մասը և Փոքր Ասիայի արևմտյան ափը։ Անտիկ ժամանակների Հունաստանի պատմությունը հույն
@@ -278,7 +422,7 @@
                 </ul>
             </span>
         </div>
-        <div>
+        <div class="image-gallery">
             <a href="հունական.jpg" target="_blank"><img src="հունական.jpg"></a>
             <a href="հունական 2.jpg" target="_blank"><img src="հունական 2.jpg" style="width: 335px; height: 234px;"></a>
         </div>
@@ -286,8 +430,8 @@
     <hr>
     <h1>Հին Հռոմեական քաղաքակրթություն</h1>
     <hr>
-    <div style="display: flex;">
-        <div>
+    <div class="civilization-section">
+        <div class="text-content">
             <span>
                 Հռոմեական Հանրապետություն (լատին․՝ Res publica Romana)՝ դասական Հռոմեական քաղաքակրթություն, որն սկիզբ է
                 առել Հռոմի թագավորության տապալմամբ մ.թ.ա. 509 թվականից և ավարտվել է մ.թ.ա. 27 թվականին, երբ հիմնադրվեց
@@ -309,7 +453,7 @@
                 </ul>
             </span>
         </div>
-        <div>
+        <div class="image-gallery">
             <a href="հռոմ.jpg" target="_blank"><img src="հռոմ.jpg" style="width: 330px; height: 230px;"></a>
             <a href="հռոմ 2.jpg" target="_blank"><img src="հռոմ 2.jpg" style="width: 330px; height: 230px;"></a>
         </div>
@@ -317,8 +461,8 @@
     <hr>
     <h1>Արաբական քաղաքակրթություն</h1>
     <hr>
-    <div style="display: flex;">
-        <div>
+    <div class="civilization-section">
+        <div class="text-content">
             <span>
                 Արաբական քաղաքակրթությունը զարգացել է հիմնականում Արևելյան Միջերկրականում և Արաբական թերակղզում, իսկ նրա
                 ազդեցությունը տարածվել է Հյուսիսային Աֆրիկայում և Կենտրոնական Ասիայում: Արաբների մշակույթը և
@@ -340,7 +484,7 @@
                 </ul>
             </span>
         </div>
-        <div>
+        <div class="image-gallery">
             <a href="արաբական.jpg" target="_blank"><img src="արաբական.jpg"></a>
             <a href="արաբական 2.jpg" target="_blank"><img src="արաբական 2.jpg" style="width: 300px; height: 168px;"></a>
         </div>
@@ -348,8 +492,8 @@
     <hr>
     <h1>Ռուսական քաղաքակրթություն</h1>
     <hr>
-    <div style="display: flex;">
-        <div>
+    <div class="civilization-section">
+        <div class="text-content">
             <span>
                 Ռուսաստան (ռուս.՝ Россия), պաշտոնական անվանումը՝ Ռուսաստանի Դաշնություն (ռուս.՝ Российская Федерация),
                 միջմայրցամաքային պետություն Եվրասիայի հյուսիսարևմտյան հատվածում[7]։ Տարածքի հիմնական մասը գտնվում է
@@ -371,7 +515,7 @@
                 </ul>
             </span>
         </div>
-        <div>
+        <div class="image-gallery">
             <a href="Ռուսական.jpg" target="_blank"><img src="Ռուսական.jpg"></a>
             <a href="Ռուսական 2.jpg" target="_blank"><img src="Ռուսական 2.jpg"
                     style="width: 300px; height: 168px;margin-top: 20px;"></a>
@@ -380,8 +524,8 @@
     <hr>
     <h1>Ճապոնական քաղաքակրթություն</h1>
     <hr>
-    <div style="display: flex;">
-        <div>
+    <div class="civilization-section">
+        <div class="text-content">
             <span>
                 Ճապոնացիների մասին առաջին գրավոր հիշատակումը եղել է մ.թ. I դարի չինական ժամանակագրության մեջ։ Երկար
                 ժամանակ այլ ազգերից մեկուսացվածությունն իր ազդեցությունն է թողել Ճապոնիայի պատմության և մշակույթի վրա։
@@ -406,21 +550,22 @@
                 </ul>
             </span>
         </div>
-        <div>
+        <div class="image-gallery">
             <a href="ճապոնական.jpg" target="_blank"><img src="ճապոնական.jpg"></a>
             <a href="ճապոնական 2.jpg" target="_blank"><img src="ճապոնական 2.jpg"
                     style="width: 291px; height: 234px;"></a>
         </div>
     </div>
     <footer style="height: 70px; background: #000; color: white; padding: 20px; margin-top: 50px;">
-        <div style="display: flex; align-items: center; justify-content: center;">
+        <div>
             <p>This site was created by <span style="text-decoration: underline; color: white;"> Gegham
                     Mikayelyan</span></p><br>
         </div>
         <div>
             <a href="https://brainograph.com/map?type=lesson&lessonID=1159&presentation=2564&screenShot=true"
-                style="color: white; margin: 0 0 0 660px; text-decoration: none;" target="_blank">Մեր աշխատանքը</a>
+                style="color: white; text-decoration: none;" target="_blank">Մեր աշխատանքը</a>
         </div>
     </footer>
 </body>
+
 </html>
