@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -6,59 +6,47 @@
     <title>Product - Քաղաքակրթություններ</title>
 
     <style>
-        /* ========================================================= */
-        /* ОСНОВНЫЕ СТИЛИ (ДЕЛАЮТ МАКЕТ ГИБКИМ) */
-        /* ========================================================= */
-
         body {
             background-image: linear-gradient(to bottom right, rgb(94, 255, 180), rgb(255, 179, 0));
             background-repeat: no-repeat;
-            /* Важно: минимальная высота для полного градиента на маленьком контенте */
             min-height: 100vh; 
             margin: 0;
             padding: 0;
         }
 
-        /* Общие стили для контентных секций */
         .civilization-section {
-            display: flex; /* Используем Flexbox для основного макета ТЕКСТ + ИЗОБРАЖЕНИЯ */
+            display: flex;
             margin: 20px 10px;
-            gap: 20px; /* Расстояние между блоками текста и изображений */
+            gap: 20px;
         }
 
         .text-content {
             padding: 10px 0 0 10px;
-            /* Flex-Grow: позволяет блоку занимать все доступное место */
             flex-grow: 1; 
-            /* Flex-Basis: предлагает начальный размер, но flex-grow важнее */
             flex-basis: 60%; 
         }
 
         .image-gallery {
             display: flex;
-            flex-direction: column; /* Изображения в галерее пусть идут вертикально */
+            flex-direction: column;
             gap: 10px;
-            flex-basis: 30%; /* Выделяем 30% ширины для галереи на больших экранах */
+            flex-basis: 30%;
             padding: 10px;
         }
 
-        /* Стиль для текста внутри div */
         span {
             font-size: 23px;
-            display: block; /* Важно: span по умолчанию строчный, делаем блочным */
-            line-height: 1.5; /* Улучшаем читабельность */
+            display: block;
+            line-height: 1.5;
         }
 
-        /* Делаем все изображения адаптивными */
         .image-gallery img {
-            max-width: 100%; /* Гарантирует, что изображение не вылезет из своего контейнера */
-            height: auto; /* Сохраняет пропорции изображения */
-            border-radius: 8px; /* Небольшой визуальный штрих */
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
         }
 
-        /* Для изображений с заданным стилем в коде (например, Չինական) */
         .image-gallery img[style] {
-            /* Перезаписываем инлайновые стили фиксированной ширины/высоты, чтобы сделать их адаптивными */
             width: 100% !important; 
             height: auto !important;
         }
@@ -72,15 +60,14 @@
             padding: 0;
         }
         
-        /* Стили футера (для лучшей адаптивности) */
         footer {
-            height: auto !important; /* Убираем фиксированную высоту */
+            height: auto !important;
             background: #000;
             color: white;
             padding: 20px;
             margin-top: 50px;
             display: flex;
-            flex-direction: column; /* Элементы футера вертикально по умолчанию */
+            flex-direction: column;
             align-items: center;
             text-align: center;
         }
@@ -92,11 +79,10 @@
         footer a {
             color: white; 
             text-decoration: none;
-            margin: 10px 0; /* Добавляем отступы для ссылок */
-            display: block; /* Ссылка занимает всю ширину */
+            margin: 10px 0;
+            display: block;
         }
         
-        /* Улучшаем стилизацию списка */
         ul {
             list-style: disc inside;
             padding-left: 0;
@@ -106,20 +92,13 @@
             margin-top: 5px;
         }
 
-        /* ========================================================= */
-        /* МЕДИАЗАПРОСЫ (MEDIA QUERIES) ДЛЯ АДАПТИВНОСТИ */
-        /* ========================================================= */
-        
-        /* Стили для экранов с максимальной шириной 768px (планшеты и мобильные) */
         @media (max-width: 768px) {
             
-            /* Делаем основной блок контента вертикальным */
             .civilization-section {
-                flex-direction: column; /* Текст и изображения располагаются друг под другом */
+                flex-direction: column;
                 margin: 10px;
             }
             
-            /* Уменьшаем размер шрифта для лучшей читабельности на маленьких экранах */
             span {
                 font-size: 18px;
             }
@@ -129,37 +108,30 @@
             }
 
             .image-gallery {
-                flex-direction: row; /* Изображения внутри галереи можно расположить в ряд для компактности */
-                flex-wrap: wrap; /* Если не поместятся, перенесутся на новую строку */
-                justify-content: center; /* Выравнивание по центру */
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
                 padding: 5px;
             }
             
-            /* Уменьшаем размер изображений в галерее на мобильных, если их несколько */
             .image-gallery img {
-                width: 48%; /* 2 изображения в ряд, с небольшим отступом */
+                width: 48%;
             }
             
-            /* Если изображений 1 или 3, то можно сделать их по 100% */
-            /* Чтобы не усложнять, оставим 48% — так они не будут слишком большими */
 
-            /* Корректировка футера для мобильных */
             footer a {
                 margin: 5px 0;
-                /* Убираем ненужный большой отступ, заданный инлайновым стилем */
                 margin-left: 0 !important; 
             }
             
-            /* На мобильных устройствах делаем элементы футера более компактными */
             footer div:nth-child(2) {
                 text-align: center;
             }
         }
         
-        /* Стили для экранов с максимальной шириной 480px (только телефоны) */
         @media (max-width: 480px) {
             .image-gallery img {
-                width: 100%; /* Одно изображение на всю ширину на самых маленьких экранах */
+                width: 100%;
             }
         }
 
