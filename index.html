@@ -1,4 +1,3 @@
-html
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,23 +12,6 @@ html
             min-height: 100vh; 
             margin: 0;
             padding: 0;
-        }
-
-         h1 {
-            text-align: center; /* Центрируем текст заголовка */
-            border-top: 1px solid black; /* Добавляем линию перед заголовком (вместо hr) */
-            padding-top: 1em; /* Отступ сверху */
-            margin-top: 1em; /* Отступ между линиями */
-        }
-        
-        body > h1:first-of-type {
-            border-top: none;
-            padding-top: 0;
-            margin-top: 0;
-        }
-
-        hr
-            display: none; 
         }
 
         .civilization-section {
@@ -69,7 +51,15 @@ html
             height: auto !important;
         }
 
-         
+        hr {
+            display: block;
+            height: 1px;
+            border: 0;
+            border-top: 1px solid black;
+            margin: 1em 0;
+            padding: 0;
+        }
+        
         footer {
             height: auto !important;
             background: #000;
@@ -128,6 +118,7 @@ html
                 width: 48%;
             }
             
+
             footer a {
                 margin: 5px 0;
                 margin-left: 0 !important; 
@@ -150,7 +141,7 @@ html
 
 <body>
     <h1>Քաղաքակրթություն</h1>
-    
+    <hr>
     <div class="civilization-section">
         <div class="text-content" style="padding: 10px;">
             <span>Քաղաքակրթություն, հասարակական զարգացման, նաև նյութական ու հոգևոր մշակույթի մակարդակ, աստիճան։
@@ -164,16 +155,17 @@ html
                 առանձնահատկությամբ, հաղորդակցության սիմվոլիկ համակարգերով։ </span>
         </div>
     </div>
-    <hr style="display: none;"> <h1>Օրինակներ</h1>
-    
+    <hr>
+    <h1>Օրինակներ</h1>
+    <hr>
     <div style="padding: 0 10px;">
         <span>Եգիպտական, Հին Չինական, Հին Հնդկական, Մինոսյան, Մայաների, Ացտեկների, Հին Հունական, ՀիՆ Հռոմեական, Արաբական,
             Ռուսական և Ճապոնական
             քաղաքակրթություններ։</span>
     </div>
-    
+    <hr>
     <h1>Եգիպտական քաղաքակրթություն</h1>
-    
+    <hr>
     <div class="civilization-section">
         <div class="text-content">
             <span>Եգիպտական քաղաքակրթությունԵգիպտական քաղաքակրթությունը ձևավորվել է Աֆրիկայի հյուսիս–արևելքում` Նեղոս
@@ -200,9 +192,9 @@ html
             <a href="Без названия.jpg" target="_blank"><img src="Без названия.jpg"></a>
         </div>
     </div>
-    
+    <hr>
     <h1>Հին Չինական քաղաքակրթություն</h1>
-    
+    <hr>
     <div class="civilization-section">
         <div class="text-content"><span>
                 Չինական քաղաքակրթություն: Չինաստանը հնագույն մշակույթի երկիր է, արևելյան քաղաքակրթության օրրանը. այստեղ
@@ -234,14 +226,14 @@ html
         <div class="image-gallery">
             <a href="հին չինական.jpg" target="_blank"><img src="հին չինական.jpg"></a>
             <a href="հին չինական 1.jpg" target="_blank"><img src="հին չինական 1.jpg"
-                        style="width: 280px; height: 180px;"></a>
+                    style="width: 280px; height: 180px;"></a>
             <a href="հին չինական 2.jpg" target="_blank"><img src="հին չինական 2.jpg"
-                        style="width: 280px; height: 180px;"></a>
+                    style="width: 280px; height: 180px;"></a>
         </div>
     </div>
-    
+    <hr>
     <h1>Հին Հնդկական քաղաքակրթություն</h1>
-    
+    <hr>
     <div class="civilization-section">
         <div class="text-content">
             <span>Ինչպես արդեն ասել ենք, հնդկական ամենահին քաղաքակրթությունը, որը կոչվում է Հրապպան կամ Պրոտո-հնդկական
@@ -266,12 +258,12 @@ html
         <div class="image-gallery">
             <a href="Հին Հնդկական.jpg" target="_blank"><img src="Հին Հնդկական.jpg"></a>
             <a href="Հին հնդկական 2.jpg" target="_blank"><img src="Հին հնդկական 2.jpg"
-                        style="width: 282px; height: 179px;"></a>
+                    style="width: 282px; height: 179px;"></a>
         </div>
     </div>
-    
+    <hr>
     <h1>Կրետե (Մինոսյան) քաղաքակրթություն</h1>
-    
+    <hr>
     <div class="civilization-section">
         <div class="text-content">
             <span>
@@ -300,9 +292,9 @@ html
             <a href="Մինոսյան 3.jpg" target="_blank"><img src="Մինոսյան 3.jpg" style="width: 330px;height: 220px;"></a>
         </div>
     </div>
-    
+    <hr>
     <h1>Մայաների քաղաքակրթություն</h1>
-    
+    <hr>
     <div class="civilization-section">
         <div class="text-content">
             <span>
@@ -339,9 +331,9 @@ html
             <a href="Mayaner 2.png" target="_blank"><img src="Mayaner 2.png" style="width: 330px; height: 250px;"></a>
         </div>
     </div>
-    
+    <hr>
     <h1>Ացտեկներ</h1>
-    
+    <hr>
     <div class="civilization-section">
         <div class="text-content">
             <span>
@@ -371,9 +363,9 @@ html
             <a href="Ացտեկներ 2.jpg" target="_blank"><img src="Ացտեկներ 2.jpg"></a>
         </div>
     </div>
-    
+    <hr>
     <h1>Հին Հունական քաղաքակրթություն</h1>
-    
+    <hr>
     <div class="civilization-section">
         <div class="text-content">
             <span>
@@ -407,9 +399,9 @@ html
             <a href="հունական 2.jpg" target="_blank"><img src="հունական 2.jpg" style="width: 335px; height: 234px;"></a>
         </div>
     </div>
-    
+    <hr>
     <h1>Հին Հռոմեական քաղաքակրթություն</h1>
-    
+    <hr>
     <div class="civilization-section">
         <div class="text-content">
             <span>
@@ -438,9 +430,9 @@ html
             <a href="հռոմ 2.jpg" target="_blank"><img src="հռոմ 2.jpg" style="width: 330px; height: 230px;"></a>
         </div>
     </div>
-    
+    <hr>
     <h1>Արաբական քաղաքակրթություն</h1>
-    
+    <hr>
     <div class="civilization-section">
         <div class="text-content">
             <span>
@@ -469,9 +461,9 @@ html
             <a href="արաբական 2.jpg" target="_blank"><img src="արաբական 2.jpg" style="width: 300px; height: 168px;"></a>
         </div>
     </div>
-    
+    <hr>
     <h1>Ռուսական քաղաքակրթություն</h1>
-    
+    <hr>
     <div class="civilization-section">
         <div class="text-content">
             <span>
@@ -498,12 +490,12 @@ html
         <div class="image-gallery">
             <a href="Ռուսական.jpg" target="_blank"><img src="Ռուսական.jpg"></a>
             <a href="Ռուսական 2.jpg" target="_blank"><img src="Ռուսական 2.jpg"
-                        style="width: 300px; height: 168px;margin-top: 20px;"></a>
+                    style="width: 300px; height: 168px;margin-top: 20px;"></a>
         </div>
     </div>
-    
+    <hr>
     <h1>Ճապոնական քաղաքակրթություն</h1>
-    
+    <hr>
     <div class="civilization-section">
         <div class="text-content">
             <span>
@@ -533,14 +525,13 @@ html
         <div class="image-gallery">
             <a href="ճապոնական.jpg" target="_blank"><img src="ճապոնական.jpg"></a>
             <a href="ճապոնական 2.jpg" target="_blank"><img src="ճապոնական 2.jpg"
-                        style="width: 291px; height: 234px;"></a>
+                    style="width: 291px; height: 234px;"></a>
         </div>
     </div>
-    
     <footer style="height: 70px; background: #000; color: white; padding: 20px; margin-top: 50px;">
         <div>
             <p>This site was created by <span style="text-decoration: underline; color: white;"> Gegham
-                        Mikayelyan</span></p><br>
+                    Mikayelyan</span></p><br>
         </div>
         <div>
             <a href="https://brainograph.com/map?type=lesson&lessonID=1159&presentation=2564&screenShot=true"
@@ -550,5 +541,3 @@ html
 </body>
 
 </html>
-```
-
